@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finance Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Finance Dashboard</h1>
-  <p>Welcome, <strong><%= user %></strong>!</p>
+<body class="bg-gray-100 min-h-screen">
+  <div class="max-w-4xl mx-auto py-8 px-4">
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">Finance Dashboard</h1>
+      <p class="text-gray-600">Welcome, <strong class="text-green-600"><%= user %></strong>!</p>
+    </div>
 
-  <h2>Financial Reports</h2>
-  <table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Report Name</th>
-        <th>Date</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
+    <h2 class="text-xl font-semibold text-gray-700 mb-4">Financial Reports</h2>
+
+    <div class="grid gap-4 md:grid-cols-2">
       <% reports.forEach(function(r) { %>
-        <tr>
-          <td><%= r.id %></td>
-          <td><%= r.name %></td>
-          <td><%= r.date %></td>
-          <td><%= r.status %></td>
-        </tr>
+        <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-sm text-gray-500">ID: <%= r.id %></span>
+            <span class="<%= r.status === 'Completed' ? 'bg-green-100 text-green-800' : r.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800' %> text-xs px-2 py-1 rounded"><%= r.status %></span>
+          </div>
+          <h3 class="text-lg font-medium text-gray-800"><%= r.name %></h3>
+          <p class="text-gray-500 text-sm mt-2"><%= r.date %></p>
+        </div>
       <% }); %>
-    </tbody>
-  </table>
+    </div>
 
-  <hr />
-  <p>
-    <a href="http://localhost:5001/dashboard">Go to HR App</a> |
-    <a href="<%= ssoServer %>/logout">Logout</a>
-  </p>
+    <div class="mt-8 pt-4 border-t border-gray-200 flex gap-4">
+      <a href="http://localhost:5001/dashboard" class="text-blue-600 hover:text-blue-800 hover:underline">Go to HR App</a>
+      <span class="text-gray-300">|</span>
+      <a href="<%= ssoServer %>/logout" class="text-red-600 hover:text-red-800 hover:underline">Logout</a>
+    </div>
+  </div>
 </body>
 </html>

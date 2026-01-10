@@ -1,15 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logged Out</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Logged out</h1>
-  <p>You have been logged out of SSO.</p>
-  <ul>
-    <li><a href="http://localhost:5001">HR App</a></li>
-    <li><a href="http://localhost:5002">Finance App</a></li>
-  </ul>
-  <p><a href="/login">Login again</a></p>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="max-w-md w-full mx-4">
+    <div class="bg-white rounded-lg shadow-md p-8 text-center">
+      <div class="mb-4">
+        <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h1 class="text-2xl font-bold text-gray-800 mb-2">Logged Out</h1>
+      <p class="text-gray-600 mb-6">You have been logged out of SSO.</p>
+
+      <div class="space-y-3">
+        <p class="text-gray-500 text-sm">Go to an app:</p>
+        <div class="flex gap-3 justify-center">
+          <a
+            href="http://localhost:5001"
+            class="bg-blue-100 text-blue-700 px-4 py-2 rounded-md hover:bg-blue-200 transition-colors"
+          >
+            HR App
+          </a>
+          <a
+            href="http://localhost:5002"
+            class="bg-green-100 text-green-700 px-4 py-2 rounded-md hover:bg-green-200 transition-colors"
+          >
+            Finance App
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-gray-200">
+        <a href="/login" class="text-blue-600 hover:text-blue-800 hover:underline">Login again</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
