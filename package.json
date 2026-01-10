@@ -1,0 +1,19 @@
+{
+  "name": "sso-demo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "sso-server",
+    "hr-app",
+    "finance-app"
+  ],
+  "scripts": {
+    "sso": "npm run start --workspace=sso-server",
+    "hr": "npm run start --workspace=hr-app",
+    "finance": "npm run start --workspace=finance-app",
+    "dev": "concurrently \"npm run sso\" \"npm run hr\" \"npm run finance\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
