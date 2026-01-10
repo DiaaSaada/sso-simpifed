@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finance Dashboard</title>
+</head>
+<body>
+  <h1>Finance Dashboard</h1>
+  <p>Welcome, <strong><%= user %></strong>!</p>
+
+  <h2>Financial Reports</h2>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Report Name</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% reports.forEach(function(r) { %>
+        <tr>
+          <td><%= r.id %></td>
+          <td><%= r.name %></td>
+          <td><%= r.date %></td>
+          <td><%= r.status %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <hr />
+  <p>
+    <a href="http://localhost:5001/dashboard">Go to HR App</a> |
+    <a href="<%= ssoServer %>/logout">Logout</a>
+  </p>
+</body>
+</html>
