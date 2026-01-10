@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HR Dashboard</title>
+</head>
+<body>
+  <h1>HR Dashboard</h1>
+  <p>Welcome, <strong><%= user %></strong>!</p>
+
+  <h2>Employee List</h2>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% employees.forEach(function(e) { %>
+        <tr>
+          <td><%= e.id %></td>
+          <td><%= e.name %></td>
+          <td><%= e.department %></td>
+          <td><%= e.salary %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <hr />
+  <p>
+    <a href="http://localhost:5002/dashboard">Go to Finance App</a> |
+    <a href="<%= ssoServer %>/logout">Logout</a>
+  </p>
+</body>
+</html>
