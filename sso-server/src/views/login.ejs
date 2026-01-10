@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SSO Login</title>
+</head>
+<body>
+  <h1>SSO Login</h1>
+  <% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  <form method="POST" action="/login">
+    <div>
+      <label>Username: <input type="text" name="username" required /></label>
+    </div>
+    <div>
+      <label>Password: <input type="password" name="password" required /></label>
+    </div>
+    <input type="hidden" name="redirect_uri" value="<%= redirectUri %>" />
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>
