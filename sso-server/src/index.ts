@@ -85,6 +85,7 @@ app.post('/login', (req: Request, res: Response) => {
   if (redirect_uri) {
     console.log(`SSO: Redirecting to app: ${redirect_uri}`);
     const separator = redirect_uri.includes('?') ? '&' : '?';
+    // command the client browser to 301 redirect after setting the cookie
     return res.redirect(`${redirect_uri}${separator}token=${token}`);
   }
 
